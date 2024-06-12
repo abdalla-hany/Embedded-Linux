@@ -1,3 +1,5 @@
+#Check if a given number is in a given list or not 
+
 user_inputs = []
 i = 1
 while True:
