@@ -24,7 +24,7 @@ def list_dir():
 while True:
     user_choice = int(
         input(
-            "Enter what you want to do:\n \
+        "Enter what you want to do:\n \
 1. Print the current path directory.\n \
 2. Change the current directory.\n \
 3. Make mew directory.\n \
