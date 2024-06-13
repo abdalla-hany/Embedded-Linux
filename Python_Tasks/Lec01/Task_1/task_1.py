@@ -1,20 +1,22 @@
 # Check if a given number is in a given list or not
 
 user_inputs = []
-i = 1
+i = 0
 while True:
-    item = input(f"Enter number in {i-1} index: ")
+    item = input(f"Enter number in {i} index: ")
     i += 1
     if item == "":
         break
     user_inputs.append(item)
 serch_number = int(input("Enter the number to search in the list: "))
 indices = []
-length = len(user_inputs)
-for index in range(length):
+for index in range(len(user_inputs)):
     if serch_number == int(user_inputs[index]):
         indices.append(int(index))
 
-print(
-    f"The number is appered {len(indices)} times and the indices of the number is {indices}"
-)
+if indices == []:
+    print(f"The number {serch_number} isn't in the list.")
+else:
+    print(
+        f"The number {serch_number} appered {len(indices)} times and the indices of the number is {indices}"
+    )
