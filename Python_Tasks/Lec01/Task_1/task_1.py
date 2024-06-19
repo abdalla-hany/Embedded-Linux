@@ -2,14 +2,17 @@
 
 user_inputs = []
 i = 0
+
 while True:
     item = input(f"Enter number in {i} index: ")
     i += 1
     if item == "":
         break
     user_inputs.append(item)
+
 serch_number = int(input("Enter the number to search in the list: "))
 indices = []
+
 for index in range(len(user_inputs)):
     if serch_number == int(user_inputs[index]):
         indices.append(int(index))
