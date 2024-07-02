@@ -1,10 +1,3 @@
-# take the project name from the user to add water mark for every file
-# make 3 directors src, test, build
-# ask if the user want to add classes or not
-# make all classes as cpp, hpp file in src dir
-# make main.cpp in src dir
-# make CMakeLists.txt in project dir
-
 import os
 import shutil
 from datetime import datetime
@@ -67,7 +60,57 @@ return 0;
 }}"""
     file.write(text)
 
+
+for clas in classes_names:
+    with open(f"{project_name}/src/{clas}.cpp", "w") as file:
+        text = f"""/*
+* {clas}.cpp
+* Description: the {clas} class Source file
+* Created on: {time}
+* Author: {author_name}
+*/
+#include "{clas}.hpp"
+
+{clas}::{clas}()
+{{
+
+}}
+
+{clas}::~{clas}()
+{{
+
+}}
+"""
+        file.write(text)
+    with open(f"{project_name}/src/{clas}.hpp", "w") as file:
+        text = f"""/*
+* {clas}.hpp
+* Description: the {clas} class header file
+* Created on: {time}
+* Author: {author_name}
+*/
+#ifndef {clas.upper()}_HPP
+#define {clas.upper()}_HPP
+
+#pragma once
+
+class {clas}
+{{
+public:
+    {clas}();
+    ~{clas}();
+
+private:
+
+}};
+
+#endif"""
+        file.write(text)
+
+
 with open(f"{project_name}/CMakeLists.txt", "w") as file:
+    classes_list = ["src/" + clas + ".cpp" for clas in classes_names]
+    classes_string = " ".join(classes_list)
     text = f"""
 #  Cmake file
 #  Description: cmake file to handel the build process
@@ -75,6 +118,10 @@ with open(f"{project_name}/CMakeLists.txt", "w") as file:
 #  Author: {author_name}
 
 cmake_minimum_required(VERSION 3.10)
-Project: {project_name}
-add_executable ({project_name} src/main.cpp)"""
+Project({project_name})
+add_executable ({project_name} src/main.cpp {classes_string})"""
     file.write(text)
+
+os.chdir(f"{project_name}/build")
+os.system(f"cmake .. && make -j && ./{project_name}")
+

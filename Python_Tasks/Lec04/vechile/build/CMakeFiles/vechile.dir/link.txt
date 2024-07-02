@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/vechile.dir/src/main.cpp.o CMakeFiles/vechile.dir/src/car.cpp.o CMakeFiles/vechile.dir/src/motor_cycle.cpp.o CMakeFiles/vechile.dir/src/plan.cpp.o CMakeFiles/vechile.dir/src/bus.cpp.o -o vechile 

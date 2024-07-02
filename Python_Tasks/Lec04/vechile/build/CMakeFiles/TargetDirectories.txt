@@ -1,0 +1,3 @@
+/home/abdalla-hany/Videos/Embedded Linux Diploma/Embedded Linux Tasks/Python_Tasks/Lec04/vechile/build/CMakeFiles/vechile.dir
+/home/abdalla-hany/Videos/Embedded Linux Diploma/Embedded Linux Tasks/Python_Tasks/Lec04/vechile/build/CMakeFiles/edit_cache.dir
+/home/abdalla-hany/Videos/Embedded Linux Diploma/Embedded Linux Tasks/Python_Tasks/Lec04/vechile/build/CMakeFiles/rebuild_cache.dir
