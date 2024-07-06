@@ -1,0 +1,351 @@
+\doxysection{functions.\+cpp File Reference}
+\hypertarget{functions_8cpp}{}\label{functions_8cpp}\index{functions.cpp@{functions.cpp}}
+
+
+main source file for all functions used in HMI screen  
+
+
+{\ttfamily \#include "{}hmi\+\_\+functions.\+h"{}}\newline
+{\ttfamily \#include "{}keypad.\+h"{}}\newline
+{\ttfamily \#include "{}lcd.\+h"{}}\newline
+{\ttfamily \#include "{}std\+\_\+types.\+h"{}}\newline
+{\ttfamily \#include "{}timer1.\+h"{}}\newline
+{\ttfamily \#include "{}uart.\+h"{}}\newline
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$util/delay.\+h$>$}\newline
+Include dependency graph for functions.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{functions_8cpp_a96c21d2a815baf98a57b50152c0997c5}{Init\+\_\+\+Function}} (void)
+\begin{DoxyCompactList}\small\item\em Function to initialize HMI components. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8cpp_a1d6f9a3f1b9801e17509c855ac9c085b}{Take\+\_\+first\+Password}} (void)
+\begin{DoxyCompactList}\small\item\em Function to take the first password input from the user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8cpp_ad44a80c9f8a4301fa85e565eb8ee6bb3}{Take\+\_\+second\+Password}} (void)
+\begin{DoxyCompactList}\small\item\em Function to take the second password input for confirmation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8cpp_a4ea6600b86b243529c1e5cbe37763258}{send\+\_\+\+Password}} (void)
+\begin{DoxyCompactList}\small\item\em Function to send both entered passwords to the control ECU. \end{DoxyCompactList}\item 
+uint8 \mbox{\hyperlink{functions_8cpp_ad489c7cff1aef423a661645a9811649c}{receive\+\_\+command}} (void)
+\begin{DoxyCompactList}\small\item\em Function to receive a command from the control ECU. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8cpp_af9d0ff4f31dfaba5d27e1ccf57083c76}{send\+\_\+command}} (uint8 command)
+\begin{DoxyCompactList}\small\item\em Function to send a command to the control ECU. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8cpp_ae6fffe39f7afd74d76a311217db8cff1}{Main\+\_\+\+Menu}} (void)
+\begin{DoxyCompactList}\small\item\em Function to display the main menu and handle user selection. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8cpp_a943278efffa6c01445453a4b6917cafe}{Change\+\_\+\+Password}} (void)
+\begin{DoxyCompactList}\small\item\em Function to initiate the password change process. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8cpp_af6a64c3e81b4ded087057b4fa22cd042}{Taking\+\_\+new\+Password}} (void)
+\begin{DoxyCompactList}\small\item\em Function to handle new password entry and send it to the control ECU. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8cpp_a63a8e65e9082abcc8e96bf250e6dda47}{Checking\+\_\+\+Password}} (uint8 command)
+\begin{DoxyCompactList}\small\item\em Function to check the entered password based on the given command. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8cpp_aa00b166b99110244ce448e0f6ed5795f}{Open\+\_\+\+Door}} (void)
+\begin{DoxyCompactList}\small\item\em Function to simulate the door opening process. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8cpp_a3a1228b1b8e5b4864ab216431a389c75}{Alarm}} (void)
+\begin{DoxyCompactList}\small\item\em Function to trigger the alarm and display an error message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8cpp_afe39dc4a2f911a523d4096f605baa687}{Count\+\_\+\+Seconds}} (void)
+\begin{DoxyCompactList}\small\item\em Callback function to count seconds using Timer1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{functions_8cpp_a1e58a3dd867f56d710e68b52a1e94998}{Timer1\+\_\+count\+Seconds}} (uint8 seconds)
+\begin{DoxyCompactList}\small\item\em Function to count a specified number of seconds using Timer1. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{functions_8cpp_ac3cf631a061b5e5631eb8094115088f1}{call}} (int num)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{functions_8cpp_a152c3d3abc6f55bef2655b581bbd7421}\label{functions_8cpp_a152c3d3abc6f55bef2655b581bbd7421} 
+uint8 {\bfseries g\+\_\+first\+Pass} \mbox{[}PASSWORD\+\_\+\+SIZE\mbox{]} = \{0\}
+\item 
+\Hypertarget{functions_8cpp_abb2fb26892f69b049f1fcb53eebe329b}\label{functions_8cpp_abb2fb26892f69b049f1fcb53eebe329b} 
+uint8 {\bfseries g\+\_\+second\+Pass} \mbox{[}PASSWORD\+\_\+\+SIZE\mbox{]} = \{0\}
+\item 
+\Hypertarget{functions_8cpp_a9c5d808e06be16cd6d47006e3a696f87}\label{functions_8cpp_a9c5d808e06be16cd6d47006e3a696f87} 
+uint8 {\bfseries g\+\_\+attempt} = 0
+\item 
+\Hypertarget{functions_8cpp_af1accecdf90d3f57e85333927c9e8a71}\label{functions_8cpp_af1accecdf90d3f57e85333927c9e8a71} 
+uint8 {\bfseries g\+\_\+seconds} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+main source file for all functions used in HMI screen 
+
+\begin{DoxyAuthor}{Author}
+Abdalla Hany (\href{mailto:abdallahanyalsaid77@gmail.com}{\texttt{ abdallahanyalsaid77@gmail.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2024-\/07-\/04
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{functions_8cpp_a3a1228b1b8e5b4864ab216431a389c75}\label{functions_8cpp_a3a1228b1b8e5b4864ab216431a389c75} 
+\index{functions.cpp@{functions.cpp}!Alarm@{Alarm}}
+\index{Alarm@{Alarm}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{Alarm()}{Alarm()}}
+{\footnotesize\ttfamily void Alarm (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function to trigger the alarm and display an error message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{functions_8cpp_ac3cf631a061b5e5631eb8094115088f1}\label{functions_8cpp_ac3cf631a061b5e5631eb8094115088f1} 
+\index{functions.cpp@{functions.cpp}!call@{call}}
+\index{call@{call}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{call()}{call()}}
+{\footnotesize\ttfamily int call (\begin{DoxyParamCaption}\item[{int}]{num }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\Hypertarget{functions_8cpp_a943278efffa6c01445453a4b6917cafe}\label{functions_8cpp_a943278efffa6c01445453a4b6917cafe} 
+\index{functions.cpp@{functions.cpp}!Change\_Password@{Change\_Password}}
+\index{Change\_Password@{Change\_Password}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{Change\_Password()}{Change\_Password()}}
+{\footnotesize\ttfamily void Change\+\_\+\+Password (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function to initiate the password change process. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{functions_8cpp_a63a8e65e9082abcc8e96bf250e6dda47}\label{functions_8cpp_a63a8e65e9082abcc8e96bf250e6dda47} 
+\index{functions.cpp@{functions.cpp}!Checking\_Password@{Checking\_Password}}
+\index{Checking\_Password@{Checking\_Password}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{Checking\_Password()}{Checking\_Password()}}
+{\footnotesize\ttfamily void Checking\+\_\+\+Password (\begin{DoxyParamCaption}\item[{uint8}]{command }\end{DoxyParamCaption})}
+
+
+
+Function to check the entered password based on the given command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uint8} & command\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{functions_8cpp_afe39dc4a2f911a523d4096f605baa687}\label{functions_8cpp_afe39dc4a2f911a523d4096f605baa687} 
+\index{functions.cpp@{functions.cpp}!Count\_Seconds@{Count\_Seconds}}
+\index{Count\_Seconds@{Count\_Seconds}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{Count\_Seconds()}{Count\_Seconds()}}
+{\footnotesize\ttfamily void Count\+\_\+\+Seconds (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Callback function to count seconds using Timer1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{functions_8cpp_a96c21d2a815baf98a57b50152c0997c5}\label{functions_8cpp_a96c21d2a815baf98a57b50152c0997c5} 
+\index{functions.cpp@{functions.cpp}!Init\_Function@{Init\_Function}}
+\index{Init\_Function@{Init\_Function}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{Init\_Function()}{Init\_Function()}}
+{\footnotesize\ttfamily void Init\+\_\+\+Function (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function to initialize HMI components. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{functions_8cpp_ae6fffe39f7afd74d76a311217db8cff1}\label{functions_8cpp_ae6fffe39f7afd74d76a311217db8cff1} 
+\index{functions.cpp@{functions.cpp}!Main\_Menu@{Main\_Menu}}
+\index{Main\_Menu@{Main\_Menu}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{Main\_Menu()}{Main\_Menu()}}
+{\footnotesize\ttfamily void Main\+\_\+\+Menu (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function to display the main menu and handle user selection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{functions_8cpp_aa00b166b99110244ce448e0f6ed5795f}\label{functions_8cpp_aa00b166b99110244ce448e0f6ed5795f} 
+\index{functions.cpp@{functions.cpp}!Open\_Door@{Open\_Door}}
+\index{Open\_Door@{Open\_Door}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{Open\_Door()}{Open\_Door()}}
+{\footnotesize\ttfamily void Open\+\_\+\+Door (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function to simulate the door opening process. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{functions_8cpp_ad489c7cff1aef423a661645a9811649c}\label{functions_8cpp_ad489c7cff1aef423a661645a9811649c} 
+\index{functions.cpp@{functions.cpp}!receive\_command@{receive\_command}}
+\index{receive\_command@{receive\_command}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{receive\_command()}{receive\_command()}}
+{\footnotesize\ttfamily uint8 receive\+\_\+command (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function to receive a command from the control ECU. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8 
+\end{DoxyReturn}
+\Hypertarget{functions_8cpp_af9d0ff4f31dfaba5d27e1ccf57083c76}\label{functions_8cpp_af9d0ff4f31dfaba5d27e1ccf57083c76} 
+\index{functions.cpp@{functions.cpp}!send\_command@{send\_command}}
+\index{send\_command@{send\_command}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{send\_command()}{send\_command()}}
+{\footnotesize\ttfamily void send\+\_\+command (\begin{DoxyParamCaption}\item[{uint8}]{command }\end{DoxyParamCaption})}
+
+
+
+Function to send a command to the control ECU. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uint8} & command\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{functions_8cpp_a4ea6600b86b243529c1e5cbe37763258}\label{functions_8cpp_a4ea6600b86b243529c1e5cbe37763258} 
+\index{functions.cpp@{functions.cpp}!send\_Password@{send\_Password}}
+\index{send\_Password@{send\_Password}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{send\_Password()}{send\_Password()}}
+{\footnotesize\ttfamily void send\+\_\+\+Password (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function to send both entered passwords to the control ECU. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{functions_8cpp_a1d6f9a3f1b9801e17509c855ac9c085b}\label{functions_8cpp_a1d6f9a3f1b9801e17509c855ac9c085b} 
+\index{functions.cpp@{functions.cpp}!Take\_firstPassword@{Take\_firstPassword}}
+\index{Take\_firstPassword@{Take\_firstPassword}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{Take\_firstPassword()}{Take\_firstPassword()}}
+{\footnotesize\ttfamily void Take\+\_\+first\+Password (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function to take the first password input from the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{functions_8cpp_ad44a80c9f8a4301fa85e565eb8ee6bb3}\label{functions_8cpp_ad44a80c9f8a4301fa85e565eb8ee6bb3} 
+\index{functions.cpp@{functions.cpp}!Take\_secondPassword@{Take\_secondPassword}}
+\index{Take\_secondPassword@{Take\_secondPassword}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{Take\_secondPassword()}{Take\_secondPassword()}}
+{\footnotesize\ttfamily void Take\+\_\+second\+Password (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function to take the second password input for confirmation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{functions_8cpp_af6a64c3e81b4ded087057b4fa22cd042}\label{functions_8cpp_af6a64c3e81b4ded087057b4fa22cd042} 
+\index{functions.cpp@{functions.cpp}!Taking\_newPassword@{Taking\_newPassword}}
+\index{Taking\_newPassword@{Taking\_newPassword}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{Taking\_newPassword()}{Taking\_newPassword()}}
+{\footnotesize\ttfamily void Taking\+\_\+new\+Password (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function to handle new password entry and send it to the control ECU. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{functions_8cpp_a1e58a3dd867f56d710e68b52a1e94998}\label{functions_8cpp_a1e58a3dd867f56d710e68b52a1e94998} 
+\index{functions.cpp@{functions.cpp}!Timer1\_countSeconds@{Timer1\_countSeconds}}
+\index{Timer1\_countSeconds@{Timer1\_countSeconds}!functions.cpp@{functions.cpp}}
+\doxysubsubsection{\texorpdfstring{Timer1\_countSeconds()}{Timer1\_countSeconds()}}
+{\footnotesize\ttfamily void Timer1\+\_\+count\+Seconds (\begin{DoxyParamCaption}\item[{uint8}]{seconds }\end{DoxyParamCaption})}
+
+
+
+Function to count a specified number of seconds using Timer1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uint8} & seconds\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}

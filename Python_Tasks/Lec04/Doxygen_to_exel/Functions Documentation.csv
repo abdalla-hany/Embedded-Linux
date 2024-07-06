@@ -1,0 +1,21 @@
+Functions Names,Functions Inputs,Functions Returns,Functions Descriptions
+Alarm,void,void ,Function to trigger the alarm and display an error message
+call,num,int ,"Parameters
+
+num
+
+
+"
+Change_Password,void,void ,Function to initiate the password change process
+Checking_Password,uint8,void ,Function to check the entered password based on the given command
+Count_Seconds,void,void ,Callback function to count seconds using Timer1
+Init_Function,void,void ,Function to initialize HMI components
+Main_Menu,void,void ,Function to display the main menu and handle user selection
+Open_Door,void,void ,Function to simulate the door opening process
+receive_command,void,uint8 ,Function to receive a command from the control ECU
+send_command,uint8,void ,Function to send a command to the control ECU
+send_Password,void,void ,Function to send both entered passwords to the control ECU
+Take_firstPassword,void,void ,Function to take the first password input from the user
+Take_secondPassword,void,void ,Function to take the second password input for confirmation
+Taking_newPassword,void,void ,Function to handle new password entry and send it to the control ECU
+Timer1_countSeconds,uint8,void ,Function to count a specified number of seconds using Timer1
